@@ -251,8 +251,8 @@ class BlockTemplate():
 
         header = self.h1 +  s2rh(nonce) + self.h1
         return sha3_256(header, 1)
-        cb = self.coinb1 + extra_nonce_1 + extra_nonce_2 + self.coinb2
-        time = s2rh(time)
+        cb = self.coinb1 + BlockTemplate.extra_nonce_1 + BlockTemplate.extra_nonce_2 + self.coinb2
+        time = s2rh(BlockTemplate.time)
         bits = s2rh(self.bits)
         nonce = s2rh(nonce)
         cbh = sha3_256(bytes_from_hex(cb))
