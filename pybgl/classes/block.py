@@ -258,7 +258,7 @@ class BlockTemplate():
         cbh = sha3_256(bytes_from_hex(cb))
         c = Transaction(cb)
         merkle_root = merkle_root_from_branches(self.merkle_branches, cbh)
-        header = Block.version + submit_job.prev_hash + merkle_root + time + bits + nonce
+        header = Block.version + BlockTemplate.prev_hash + merkle_root + time + bits + nonce
         block = header.hex()
         block +=int_to_var_int(len (self.transactions) + 1).hex()
         block += cb
